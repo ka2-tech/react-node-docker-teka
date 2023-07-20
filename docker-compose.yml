@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  # Node JS
+  node:
+    build: 
+      context: ./nodeapp
+      dockerfile: Dockerfile
+    container_name: node-container
+    ports:
+      - '4000:4000'
+    volumes:
+      - ./nodeapp:/app
+  # React JS
+  react:
+    build: 
+      context: ./reactapp
+      dockerfile: Dockerfile
+    container_name: react-container
+    ports:
+      - '3000:3000'
+    stdin_open: true
